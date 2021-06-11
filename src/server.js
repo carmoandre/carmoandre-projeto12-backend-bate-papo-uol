@@ -107,10 +107,8 @@ function isMessageInvalid(body) {
 setInterval(activityVerifier, 15000);
 
 function activityVerifier() {
-    console.log("Ta funcionando a função");
     participants.forEach((participant) => {
         if (Date.now() - participant.lastStatus > 10) {
-            console.log(`${participant.name} vai sair`);
             messages.push(outgoingMessage(participant.name));
             participants = participants.filter(
                 (user) => user.name !== participant.name
